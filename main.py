@@ -113,9 +113,9 @@ def fire_drill():
             # 步骤 1: 获取监控信息
             st.write("**步骤 1: 获取监控信息**")
             st.write("获取“消防实时监控系统”的信息和“机房监控系统”的监控链接...")
-            st.write("- 烟雾浓度: 45.3")
-            st.write("- 爆燃指数: 3.2")
-            st.write("- 火势蔓延速度: 0.8")
+            st.write("- 烟雾浓度: 55.3")
+            st.write("- 爆燃指数: 33.2")
+            st.write("- 火势蔓延速度: 12.8")
             monitoring_video_file = open("机房监控系统.mp4", "rb")
             monitoring_video_bytes = monitoring_video_file.read()
             st.video(monitoring_video_bytes)
@@ -181,9 +181,6 @@ def continue_fire_drill():
 
     # 步骤 6: 生成并发送事故单
     st.write("**步骤 6: 生成并发送事故单**")
-    with open('火警火灾事故报告表.docx', 'rb') as incident_ticket_file:
-        st.download_button('下载事故单', incident_ticket_file, '火警火灾事故报告表.docx')
-        st.session_state.proceed = True
     st.image("事故单发送.png", caption="事故单发送")
     st.write("事故单已生成并发送至相关部门。")
     time.sleep(2)
@@ -198,6 +195,9 @@ def continue_fire_drill():
     st.write("结束演练，各部门恢复正常工作秩序。")
     st.image("设备更换.webp", caption="设备更换")
     st.write("UPS厂商抵达现场，进行设备更换")
+    with open('火警火灾事故报告表.docx', 'rb') as incident_ticket_file:
+        st.download_button('下载事故单', incident_ticket_file, '火警火灾事故报告表.docx')
+
 
 
 def evaluation():
