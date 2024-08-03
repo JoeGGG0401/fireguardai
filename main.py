@@ -190,7 +190,6 @@ def continue_fire_drill():
     ## 演练结束
     消防演练已成功完成，感谢各位参与！
     """)
-    st.balloons()
     st.image("演练结束.webp", caption="演练结束")
     st.write("结束演练，各部门恢复正常工作秩序。")
     st.image("设备更换.webp", caption="设备更换")
