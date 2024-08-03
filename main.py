@@ -147,6 +147,12 @@ def continue_fire_drill():
         st.image("安保通知.png", caption="安保通知")
     st.image("消防报警.png", caption="消防报警")
     st.write("通知已发送。")
+    arrive_file = open("消防到达.mp4", "rb")
+    arrive_bytes = arrive_file.read()
+    st.video(arrive_bytes)
+    st.write("119消防车迅速抵达现场。")
+
+
     time.sleep(2)
 
     # 步骤 4: 生成并发送疏散路线图
@@ -177,8 +183,22 @@ def continue_fire_drill():
     st.write("**步骤 6: 生成并发送事故单**")
     with open('火警火灾事故报告表.docx', 'rb') as incident_ticket_file:
         st.download_button('下载事故单', incident_ticket_file, '火警火灾事故报告表.docx')
+        st.session_state.proceed = True
     st.image("事故单发送.png", caption="事故单发送")
     st.write("事故单已生成并发送至相关部门。")
+    time.sleep(2)
+
+    # 步骤 7: 结束演练
+    st.markdown("""
+    ## 演练结束
+    消防演练已成功完成，感谢各位参与！
+    """)
+    st.balloons()
+    st.image("演练结束.webp", caption="演练结束")
+    st.write("结束演练，各部门恢复正常工作秩序。")
+    st.image("设备更换.webp", caption="设备更换")
+    st.write("UPS厂商抵达现场，进行设备更换")
+
 
 def evaluation():
     st.subheader("演练评估")
